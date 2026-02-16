@@ -10,10 +10,27 @@ function GetFileType()
 	return result
 end
 
+--- This function reads json file data and returns it
+---@param path string
+---@return any
+function ReadJsonFile(path)
+	local f = assert(io.open(path, "r"))
+	local content = f:read("*a")
+	f:close()
+	return content
+end
+
+--- This function decods json data
+function DecodeJsonData(content)
+	local data = vim.json.decode(content)
+	return data
+end
+
 --- This function handle <ctrl + _> command
 local function handle_command()
-	print(GetFileType())
-	Debug_log(GetFileType() or "")
+	local fileType = GetFileType()
+	local content = ReadJsonFile("comments_symbols.json")
+	local decodedContent = DecodeJsonData(content)
 end
 
 --- Config the plugin
