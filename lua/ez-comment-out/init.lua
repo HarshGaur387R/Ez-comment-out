@@ -10,15 +10,26 @@ function GetFileType()
 	return result
 end
 
---- This function reads json file data and returns it
----@param path string
----@return any
 function ReadJsonFile(path)
-	local script_dir = debug.getinfo(1).source:match("@?(.*/)")
+	local script_dir = debug.getinfo(1).source:gsub("^@", ""):match("(.*[/\\])")
+	if not script_dir then
+		error("Could not determine script directory")
+	end
+
 	local full_path = script_dir .. path
-	local f = assert(io.open(full_path, "r"))
+	local f = io.open(full_path, "r")
+
+	if not f then
+		error(string.format("Could not open file: %s", full_path))
+	end
+
 	local content = f:read("*a")
 	f:close()
+
+	if not content or content == "" then
+		error(string.format("File is empty: %s", full_path))
+	end
+
 	return content
 end
 
