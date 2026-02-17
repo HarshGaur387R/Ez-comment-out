@@ -14,7 +14,9 @@ end
 ---@param path string
 ---@return any
 function ReadJsonFile(path)
-	local f = assert(io.open(path, "r"))
+	local script_dir = debug.getinfo(1).source:match("@?(.*/)")
+	local full_path = script_dir .. path
+	local f = assert(io.open(full_path, "r"))
 	local content = f:read("*a")
 	f:close()
 	return content
