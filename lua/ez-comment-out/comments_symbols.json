@@ -5,7 +5,7 @@
       "extensions": [".py", ".pyw"],
       "single_line": "#",
       "multi_line": null,
-      "notes": "Python uses triple quotes for multi-line strings, not comments"
+      "notes": "Python uses triple quotes are for strings"
     },
     "javascript": {
       "name": "JavaScript",
