@@ -1,8 +1,8 @@
 # ez-comment-out
 
-A lightweight Neovim plugin that makes commenting out code effortless. Comment
-or uncomment lines with a single key binding, supporting both single-line and
-multi-line comments across multiple programming languages.
+A lightweight Neovim plugin that makes commenting out code effortless. 
+It also allows you to customize key-bindings and comment symbols.
+This plugin supports single-line and multi-line comments across multiple programming languages.
 
 ## Features
 
@@ -39,18 +39,18 @@ use {
 
 ## Quick Start
 
-After installation and setup, use **`Ctrl+_`** (Ctrl+Underscore) to toggle
-comments:
+After installation and setup, use **`Ctrl+_`** or **`Ctrl+/`** (Ctrl+slash behave like Ctrl+undersore) to comment:
+User default Undo key (**`u`**) to un-comment
 
 ### Normal Mode
 
 - Place cursor on any line
-- Press `<C-_>` to add comment
+- Press `<C+_>` or `<C+/>` to add comment
 
 ### Visual Mode
 
 - Select multiple lines
-- Press `<C-_>` to comment all selected lines
+- Press `<C+_>` to comment all selected lines
 
 ## How It Works
 
@@ -128,10 +128,10 @@ languages include:
 
 ## Keybindings
 
-| Mode   | Key     | Action                 |
-| ------ | ------- | ---------------------- |
-| Normal | `<C-_>` | Comment current line   |
-| Visual | `<C-_>` | Comment selected lines |
+| Mode   | Key                | Action                 |
+| ------ | -------------------| ---------------------- |
+| Normal | `<C-/>` or `<C-_>` | Comment current line   |
+| Visual | `<C-/>` or `<C-_>` | Comment selected lines |
 
 ### Custom Keybinding
 
@@ -153,11 +153,10 @@ recognized across different terminal configurations.
 `comments_symbols.json` with your language's comment symbols.
 
 **Q: Does it work with uncomment?** A: Currently, it only adds comments.
-Uncomment functionality is planned for future versions.
+to uncomment use nvim default undo `u` key.
 
 ## TODO
 
-- **Uncomment** - Logic to uncomment previously comments.
 - **CustomConfig** - User can configure commands and add new comment symbols.
 
 ## License
